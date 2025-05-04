@@ -82,7 +82,7 @@ const Emergency = () => {
                   className="banner-title mb-5"
                   style={{ textAlign: "center" }}
                 >
-                  Help us bring <span>Women Safety</span> to Reality with us
+                  Join us in making<span>Women Safety</span> to Reality with us
                 </h1>
                 <center>
                   <button

@@ -7,12 +7,12 @@ import toast from 'react-hot-toast';
 
 const Register = () => {
     const navigate = useNavigate()
-    const [uname, setName] = useState('')
+    const [fullName, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
+    const [phoneNumber, setPhone] = useState('')
     const [password, setPassword] = useState('')
-    const [emergencyNo, setEmrNumber] = useState('')
-    const [emergencyMail, setEmrEmail] = useState('')
+    const [emergencyNumber, setEmrNumber] = useState('')
+    const [emergencyEmail, setEmrEmail] = useState('')
     const [pincode, setPincode] = useState('')
 
     const validateEmail = (email) => {
@@ -22,7 +22,7 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!uname.trim()) {
+        if (!fullName.trim()) {
             toast.error('Name is required');
             return false;
         }
@@ -34,7 +34,7 @@ const Register = () => {
             toast.error('Email is required');
             return false;
         }
-        if (!phone.trim()) {
+        if (!phoneNumber.trim()) {
             toast.error('Phone Number is required');
             return false;
         }
@@ -42,19 +42,19 @@ const Register = () => {
             toast.error('Password is required');
             return false;
         }
-        if (!emergencyNo.trim()) {
+        if (!emergencyNumber.trim()) {
             toast.error('Emergence Number is required');
             return false;
         }
-        if (phone == emergencyNo) {
+        if (phoneNumber == emergencyNumber) {
             toast.error('Emergence Phone and Personal Phone must be different');
             return false;
         }
-        if (!emergencyMail.trim()) {
+        if (!emergencyEmail.trim()) {
             toast.error('Emergence Email is required');
             return false;
         }
-        if (email == emergencyMail) {
+        if (email == emergencyEmail) {
             toast.error('Emergence Email and Personal Email must be different');
             return false;
         }
@@ -63,8 +63,8 @@ const Register = () => {
             return false;
         }
         try {
-            const res = await axios.post('https://womensecbackend.onrender.com/api/v1/users/register',
-                { uname, email, phone, password, emergencyNo, emergencyMail, pincode });
+            const res = await axios.post('http://localhost:8000/api/user/register',
+                { fullName, email, phoneNumber, password, emergencyNumber, emergencyEmail, pincode });
 
             if (res.status === 201) {
                 toast.success('Register Successfully')
@@ -99,7 +99,7 @@ const Register = () => {
                             </div>
                             <div class="input-group d-flex flex-row align-items-center mb-3">
                                 <div class="form-outline flex-fill mb-0">
-                                    <input value={uname} type="text" onChange={(e) => setName(e.target.value)} class="form-control form-control-lg border-dark fs-6" placeholder="Full Name" required />
+                                    <input value={fullName} type="text" onChange={(e) => setName(e.target.value)} class="form-control form-control-lg border-dark fs-6" placeholder="Full Name" required />
                                 </div>
                             </div>
                             <div class="input-group d-flex  align-items-center mb-3">
@@ -109,7 +109,7 @@ const Register = () => {
                             </div>
                             <div class="input-group d-flex  align-items-center mb-3">
                                 <div class="form-outline flex-fill mb-0">
-                                    <input type="number" value={phone} onChange={(e) => setPhone(e.target.value)} class="form-control form-control-lg border-dark  fs-6" placeholder="Phone Number" required />
+                                    <input type="number" value={phoneNumber} onChange={(e) => setPhone(e.target.value)} class="form-control form-control-lg border-dark  fs-6" placeholder="Phone Number" required />
                                 </div>
                             </div>
                             <div class="input-group d-flex flex-row align-items-center mb-3">
@@ -119,12 +119,12 @@ const Register = () => {
                             </div>
                             <div class="input-group d-flex flex-row align-items-center mb-3">
                                 <div class="form-outline flex-fill mb-0">
-                                    <input value={emergencyNo} type="number" onChange={(e) => setEmrNumber(e.target.value)} class="form-control form-control-lg border-dark fs-6" placeholder="Emergence Number" required />
+                                    <input value={emergencyNumber} type="number" onChange={(e) => setEmrNumber(e.target.value)} class="form-control form-control-lg border-dark fs-6" placeholder="Emergence Number" required />
                                 </div>
                             </div>
                             <div class="input-group d-flex flex-row align-items-center mb-3">
                                 <div class="form-outline flex-fill mb-0">
-                                    <input value={emergencyMail} type="email" onChange={(e) => setEmrEmail(e.target.value)} class="form-control form-control-lg border-dark fs-6" placeholder="Emergence Email" required />
+                                    <input value={emergencyEmail} type="email" onChange={(e) => setEmrEmail(e.target.value)} class="form-control form-control-lg border-dark fs-6" placeholder="Emergence Email" required />
                                 </div>
                             </div>
                             <div class="input-group d-flex flex-row align-items-center mb-3">

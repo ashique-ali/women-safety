@@ -14,7 +14,7 @@ const Hero = () => {
                         </div>
                         <div className="col-md-6 my-5 my-md-0 text-center text-md-start">
                             <p className="banner-subtitle">Your Safety our Priority</p>
-                            <h1 className="banner-title">Help us bring <span >Women Safety</span> to Reality with us</h1>
+                            <h1 className="banner-title">Join us in making <span >pregnancy safer</span>  for every woman</h1>
                             <div className="learn-more-btn-section" >
                                 <Link to='/emergency' style={{backgroundColor:"red"}} className="nav-link learn-more-btn btn-header" href="#car">Emergency</Link>
                             </div>
